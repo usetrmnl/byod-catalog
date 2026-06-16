@@ -1,0 +1,107 @@
+# disabled shared_steps because these aren't constant among BYOD solutions
+# if un-commented, they will append to the wizard -> Step 3 list of instructions
+shared_steps:
+  # - text: "Set your device's MAC address in developer settings"
+  #   url: "http://localhost:3000/devices/current/developer/edit"
+  # - text: "Add the device to your TRMNL account"
+  #   url: "https://trmnl.com/devices/new"
+
+families:
+  - keyname: kindle
+    name: Kindle
+    icon: kindle
+    blurb: Most ePaper generations
+    options:
+      - keyname: kindle_koreader
+        name: KOReader path
+        tag: Recommended - easiest to set up
+        steps:
+          - { text: "Install KOReader", url: "https://github.com/koreader/koreader" }
+          - { text: "Install the TRMNL plugin", url: "https://github.com/usetrmnl/trmnl-koreader" }
+      - keyname: kindle_native
+        name: TRMNL native firmware
+        tag: Jailbreak - tech experience suggested
+        steps:
+          - { text: "Jailbreak with WinterBreak + Install the TRMNL build", url: "https://github.com/usetrmnl/trmnl-kindle/" }
+
+  - keyname: kobo
+    name: Kobo
+    icon: kobo
+    blurb: Mini, Clara, Libra, Aura, Touch
+    options:
+      - keyname: kobo_standard
+        name: trmnl-kobo
+        steps:
+          - { text: "Jailbreak with NickelMenu", url: "https://github.com/usetrmnl/trmnl-kobo" }
+          - { text: "Install the latest trmnl-kobo release", url: "https://github.com/usetrmnl/trmnl-kobo" }
+          - { text: "Point it at your TRMNL account (edit config.json)", url: "https://github.com/usetrmnl/trmnl-kobo#installation" }
+
+  - keyname: nook
+    name: Nook
+    icon: nook
+    blurb: Glowlight & Simple Touch
+    options:
+      - keyname: nook_standard
+        name: Nook Glowlight (and newer)
+        tag: trmnl-nook
+        steps:
+          - { text: "Jailbreak via ADB + F-Droid", url: "https://github.com/usetrmnl/trmnl-nook#step-1-install-adb-on-your-computer" }
+          - { text: "Install trmnl-nook client", url: "https://github.com/usetrmnl/trmnl-nook#step-6-install-trmnl-nook-client" }
+      - keyname: nook_simple_touch
+        name: Nook Simple Touch
+        tag: trmnl-nook-simple-touch
+        steps:
+          - { text: "Flash via the web tool", url: "https://github.com/usetrmnl/trmnl-nook-simple-touch" }
+
+  - keyname: esp32
+    name: Seeed Studio / DIY ESP32
+    icon: firmware
+    blurb: Your own PCB or dev board
+    options:
+      - keyname: seeed_kit
+        name: Seeed Studio device (Xiao board, DIY Kit, E Series)
+        steps:
+          - { text: "Flash the TRMNL firmware", url: "https://trmnl.com/flash" }
+          - { text: "Set your device's MAC address in developer settings", url: "http://localhost:3000/devices/current/developer/edit" }
+          - { text: "Add the device to your TRMNL account", url: "https://trmnl.com/devices/new" }
+      - keyname: esp32_board
+        name: ESP32 board
+        steps:
+          - { text: "Connect your ePaper panel to the ESP32", url: "https://docs.trmnl.com/go/diy/byod" }
+          - { text: "Flash the TRMNL firmware", url: "https://github.com/usetrmnl/firmware" }
+
+  - keyname: linux
+    name: Raspberry Pi / Linux SBC
+    icon: rpi
+    blurb: Raspberry + Orange Pi
+    options:
+      - keyname: trmnl_display
+        name: Open-source firmware
+        steps:
+          - { text: "Install trmnl-display (supports ePaper and LCD)", url: "https://github.com/usetrmnl/trmnl-display" }
+
+  - keyname: tablet
+    name: iPad / Android
+    icon: apple
+    blurb: Mirror to an LCD screen
+    options:
+      - keyname: tablet_mirror
+        name: iPad (Screen Mirroring)
+        steps:
+          - { text: "Open the TRMNL full-screen web view (from the iPad)", url: "https://trmnl.com/mirror/" }
+          - { text: "Lock orientation & disable auto-sleep", url: "https://help.trmnl.com/en/articles/11647459-trmnl-for-ipad" }
+      - keyname: android_oss
+        name: Android App (Open Source)
+        steps:
+          - { text: "Build the Android app (Open Source)", url: "https://github.com/usetrmnl/trmnl-android" }
+      - keyname: android_turnkey
+        name: Android App (Google Play)
+        steps:
+          - { text: "Install TRMNL Display", url: "https://play.google.com/store/apps/details?id=ink.trmnl.android" }
+
+catch_all:
+  name: General ePaper setup
+  blurb: These steps work for most ESP32 based boards.
+  steps:
+    - { text: "Flash the open-source TRMNL firmware", url: "https://github.com/usetrmnl/firmware" }
+    - { text: "See community videos on YouTube", url: "https://www.youtube.com/watch?v=Tr__8OlQQms" }
