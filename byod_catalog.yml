@@ -36,10 +36,10 @@ families:
           - { text: "Install the latest trmnl-kobo release", url: "https://github.com/usetrmnl/trmnl-kobo" }
           - { text: "Point it at your TRMNL account (edit config.json)", url: "https://github.com/usetrmnl/trmnl-kobo#installation" }
 
-  - keyname: nook
-    name: Nook
+  - keyname: nook_boox
+    name: Nook / Boox
     icon: nook
-    blurb: Glowlight & Simple Touch
+    blurb: Most generations
     options:
       - keyname: nook_standard
         name: Nook Glowlight (and newer)
@@ -52,6 +52,11 @@ families:
         tag: trmnl-nook-simple-touch
         steps:
           - { text: "Flash via the web tool", url: "https://github.com/usetrmnl/trmnl-nook-simple-touch" }
+      - keyname: boox_go_palma
+        name: Boox Go & Palma
+        tag: boox
+        steps:
+          - { text: "Install TRMNL Display", url: "https://play.google.com/store/apps/details?id=ink.trmnl.android" }
 
   - keyname: esp32
     name: Seeed Studio / DIY ESP32
